@@ -219,5 +219,5 @@ So the scope will be
 
 ### Examples
 
-![Sample1(<https://github.com/inianantony/jmeter/blob/master/images/sample1.png?raw=true>)
+![Sample1(https://github.com/inianantony/jmeter/blob/master/images/sample1.png?raw=true)
 
