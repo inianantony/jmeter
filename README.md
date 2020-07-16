@@ -126,3 +126,98 @@ Validate the response as expected is sent from server.
 
 Jmeter collects information about the request it performs and listeners aggregate and show metrics from that information by listening to it.
 
+## Execution order of the components
+
+The execution happens in hierarchical and ordered.
+
+Hierarchical -> some component has higher priority over other components so they will be executed first even though they ore ordered below some other component.
+
+Ordered -> the execution happen in the same way its ordered in the test plan
+
+``` list
+
+Test Plan
+|
+|-- Thread Group
+    |
+    |-- Home
+    |
+    |-- Transaction Controller
+        |
+        |-- Book Catalog
+        |
+        |-- Book Detail
+    |
+    |-- Login
+
+```
+
+In the above example for `Ordered` Test Plan the order of execution will be from
+
+Home --> Book Catalog --> Book Detail --> Login
+
+``` list
+
+Test Plan
+|
+|-- Thread Group
+    |
+    |-- Home
+    |
+    |-- Response Assertion 1
+    |
+    |-- Transaction Controller
+        |
+        |-- Book Catalog
+        |
+        |-- Book Detail
+        |
+        |-- Response Assertion 2
+
+```
+
+In the above example for `Hierarchical` Test Plan, response assertion 1 apply to home request and response assertion 2 apply to book catalog and book detail request. So the order of execution will be from
+
+Home --> response assertion 1
+Catalog --> response assertion 2
+book detail --> response assertion 2
+
+### Execution order
+
+Configuration Elements --> Pre Processors --> Timers --> Logic Controllers / Samplers --> Post processors --> Assertions --> Listeners
+
+The post processors, assertions, and listeners will execute only if there is response from the samplers. Similarly timers, pre and post processors are only executed if there is samplers for which they can be applied to.
+
+User defined variables will be executed first no matter where its placed. Configuration manager element placed in the nested child node will override the same setting from the parent. Thus configuration default elements are merged while managers are not.
+
+``` list
+
+Test Plan
+|
+|-- Thread Group
+    |
+    |-- Transaction Controller 1
+        |
+        |-- Http Request default 1
+        |
+        |-- Home
+    |-- Transaction Controller 2
+        |
+        |-- Login
+        |
+        |-- User defined variables
+    |
+    |-- Http Request default 3
+
+```
+
+So the scope will be
+
+1. User defined variables ( and it applies to both Transaction controller 1 & 2)
+2. Http Request Default 1 ( applies to Transaction controller 1)
+3. Http Request Default 2 ( and it applies to both Transaction controller 1 & 2)
+
+### Examples
+
+![Sample1(<https://github.com/inianantony/jmeter/blob/master/images/sample1.png?raw=true>)
+
