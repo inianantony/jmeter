@@ -106,4 +106,23 @@ Its the entry point of the test. It controls the number of threads( users) used 
 
 Allow us to define configuration values to be used in the test.
 
-### Controllers and Samplers
+### Controllers
+
+Logic controllers customize the logic of when to sent the request
+
+### Samplers
+
+Samplers make the request to the server.
+
+### Timers
+
+Timers introduce delay between the request to simulate real world scenario.
+
+### Assertions
+
+Validate the response as expected is sent from server.
+
+### Listeners
+
+Jmeter collects information about the request it performs and listeners aggregate and show metrics from that information by listening to it.
+
