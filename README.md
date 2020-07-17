@@ -66,6 +66,8 @@ The system should be capable of supporting at least____ users per hour
 
 <http://jmeter.apache.org/download_jmeter.cgi>
 
+Add Jmeter's bin directory to the PATH
+
 ## Running Jmeter
 
 ``` bash
@@ -261,4 +263,21 @@ So a think timer executes after a request while the normal timer executes before
 11. Add 2 Listeners , `View Results Tree` and `Summary Report` under User Thread group 
 12. Now save the script as `PerformanceTestPlan.jmx`
 
+## Running the app
 
+from the root of the project run the command
+
+``` bash
+docker build -f ./dockerfiles/app.Dockerfile -t app:v1 .
+
+docker run app:v1 -p 8080:8080
+
+```
+
+Now the app will run and the host port 8080 is bound to the app.
+
+## Running the test
+
+``` bash
+jmeter -n -t PerformanceTestPlan.jmx -l results.csv -j logfile.log -e -o ./jmeterout
+```
