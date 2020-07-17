@@ -240,6 +240,25 @@ Timer 1 -> Timer 2 -> Home Request -> Timer 1 -> Timer 2 -> Catalog Request
 
 The execution order will be
 
-Home Request -> Think Timer 1 -> Catalog Request -> Think Timer 2
+Home Request -> Think Time 1 -> Catalog Request -> Think Time 2
 
 So a think timer executes after a request while the normal timer executes before the request.
+
+## Creating the test script
+
+### Steps
+
+1. Rename the default test plan to Performance Test Plan
+2. Add `Http Request Defaults` -> Configuration Defaults
+3. Add server name or ip as `localhost` and port as `8080`
+4. Add `Thread Group` and rename it as User Thread Group
+5. Add `Transaction Controller` and `check` the Generate parent sample
+6. Add `Http Request` under Transaction Controller and rename as Home Request and set the `path` to be `/`
+7. Ad another `Http Request` under Transaction Controller and rename as Book Catalog Request and set the `path` to be `/books`
+8. Add `Response Assertion` under Transaction Controller and click `Response Code` as the Field to test, and click `Add` to add a pattern to test and set `200` as the pattern
+9. Under User Thread Group add another `Http Request` and rename as Book Detail Request and set the `path` to be `/books/1`
+10. Add a `Uniform Random Timer` under User Thread Group and set the random delay to be `7000` milliseconds
+11. Add 2 Listeners , `View Results Tree` and `Summary Report` under User Thread group 
+12. Now save the script as `PerformanceTestPlan.jmx`
+
+
