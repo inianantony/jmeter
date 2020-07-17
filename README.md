@@ -229,3 +229,17 @@ The execution order will be
 
 Timer -> Home Request -> Post processor 1 -> Post processor 2
 Catalog Request -> Post Processor 1 -> Post Processor 3 -> Assertion -> View Results Tree
+
+![Sample3](https://github.com/inianantony/jmeter/blob/master/images/sample3.png?raw=true)
+
+The execution order will be
+
+Timer 1 -> Timer 2 -> Home Request -> Timer 1 -> Timer 2 -> Catalog Request
+
+![Sample4](https://github.com/inianantony/jmeter/blob/master/images/sample4.png?raw=true)
+
+The execution order will be
+
+Home Request -> Think Timer 1 -> Catalog Request -> Think Timer 2
+
+So a think timer executes after a request while the normal timer executes before the request.
