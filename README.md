@@ -223,5 +223,6 @@ So the scope will be
 
 The execution order will be Uniform random timer -> COnstant timer -> Home -> Response Assertion -> View results tree
 
+![Sample2](https://github.com/inianantony/jmeter/blob/master/images/sample2.png?raw=true)
 
-
+The execution order will be
