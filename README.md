@@ -221,3 +221,7 @@ So the scope will be
 
 ![Sample1](https://github.com/inianantony/jmeter/blob/master/images/sample1.png?raw=true)
 
+The execution order will be Uniform random timer -> COnstant timer -> Home -> Response Assertion -> View results tree
+
+
+
