@@ -226,3 +226,6 @@ The execution order will be Uniform random timer -> COnstant timer -> Home -> Re
 ![Sample2](https://github.com/inianantony/jmeter/blob/master/images/sample2.png?raw=true)
 
 The execution order will be
+
+Timer -> Home Request -> Post processor 1 -> Post processor 2
+Catalog Request -> Post Processor 1 -> Post Processor 3 -> Assertion -> View Results Tree
