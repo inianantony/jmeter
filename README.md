@@ -297,3 +297,12 @@ Follow the below steps,
 7. Right Click on the Thread Group and validate the test.
 
 To record a HTTPS site, import the Jmeter's certificate from the `bin` folder to the Trusted Authorities in browser.
+
+## Using CSV data set
+
+Add a CSV Data set config and browse the login.csv file, to import the csv data. Set the variable names as `USERNAME,PASSWORD` and set false to Recycle on EOF and set true to Stop thread on EOF. Update the login request parameters as ${USERNAME}, and ${PASSWORD}. Change the number of threads to 3 in the Thread group and run the test. The different user credentials from the csv is taken and passed to server.
+
+## Post Processor
+
+Add a CSV selector extractor post processor under the login POST request and give the name as `BOOK_URL` , CSS selector expression as `div[class*="single-product"] div a` and attribute as `href`. 0 to pick a random elem,ent and 9999 for default value. Now the `${BOOK_URL}` can be used instead of hardcoded URL.
+
