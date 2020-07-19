@@ -340,3 +340,5 @@ Update the PerformanceTestPlan.jmx file to add a influxdb backend listener and c
 In the grafana dashboard import the grafana_template.json file.
 
 After all test is done , then `delete_cluster.sh` is used to delete the cluster.
+
+Referenced from <https://blog.kubernauts.io/load-testing-as-a-service-with-jmeter-on-kubernetes-fc5288bb0c8b>.
