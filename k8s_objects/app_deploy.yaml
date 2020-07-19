@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-bookservice
+  labels:
+    app: app-bookservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-bookservice
+  template:
+    metadata:
+      labels:
+        app: app-bookservice
+    spec:
+      containers:
+      - name: app-bookservice
+        image: app_bookservice:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+          protocol: TCP

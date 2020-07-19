@@ -322,3 +322,15 @@ Satisfied Count +  Tolerated Count / 2
 ---------------------------------------
           Total Samples
 ```
+
+## Distributed Performance testing using EKS
+
+### Pre requisites
+
+1. Minikube or docker-desktop K8s
+2. Kubectl
+3. docker
+
+### Running
+
+Run the `create_everything.sh` file to set up and run the distributed performance test
