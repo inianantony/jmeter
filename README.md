@@ -310,3 +310,15 @@ Add a CSV selector extractor post processor under the login POST request and giv
 ## Stress test using Ultimate Thread Group
 
 Add `Ultimate Thread Group` and add a new row and set Start Thread COunt to 100 and Initial Delay to 0 and StartupTime to 30 and Hold for 10 seconds and shutdown in 1 second. The variables can be adjusted to make more realistic stress test. The other configurations, samplers and listeners can be copied from the previous `RecordingTestPlan.jmx` and this test script is saved as `StressTestThread.jmx`.
+
+## Test Fragment
+
+Reusable part of test script can be extracted into a test fragment and then reused in other tests through module controller or include controller.
+
+## APDEX Score
+
+``` formula
+Satisfied Count +  Tolerated Count / 2
+---------------------------------------
+          Total Samples
+```
