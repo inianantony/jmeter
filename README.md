@@ -333,4 +333,10 @@ Satisfied Count +  Tolerated Count / 2
 
 ### Running
 
-Run the `create_everything.sh` file to set up and run the distributed performance test
+Run the `create_everything.sh` file to set up and run the distributed performance test.
+
+Update the PerformanceTestPlan.jmx file to add a influxdb backend listener and change the url of influx db to the influxdb service url.
+
+In the grafana dashboard import the grafana_template.json file.
+
+After all test is done , then `delete_cluster.sh` is used to delete the cluster.

@@ -29,5 +29,3 @@ kubectl delete  -f k8s_objects/jmeter_influxdb_svc.yaml
 echo "Creating Grafana Deployment"
 
 kubectl delete  -f k8s_objects/jmeter_grafana_deploy.yaml
-
-kubectl delete  -f k8s_objects/jmeter_grafana_svc.yaml

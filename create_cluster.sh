@@ -34,5 +34,3 @@ echo "Creating Grafana Deployment"
 
 kubectl apply  -f k8s_objects/jmeter_grafana_deploy.yaml
 
-kubectl apply  -f k8s_objects/jmeter_grafana_svc.yaml
-

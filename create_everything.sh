@@ -13,3 +13,8 @@ kubectl get pods
 ./create_environment.sh
 
 ./create_test.sh
+
+
+grafana_pod=`kubectl get pods | grep jmeter-grafana | awk '{print $1}'`
+
+kubectl port-forward $grafana_pod 3001:3000

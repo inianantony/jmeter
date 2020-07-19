@@ -12,11 +12,15 @@ unzip
 RUN   mkdir /jmeter \
 && cd /jmeter/ 
 
-COPY ./apache-jmeter-5.0.tgz ./
+WORKDIR /jmeter
+
+COPY ./apache-jmeter-5.0.tgz /jmeter
 
 RUN tar -xzf apache-jmeter-5.0.tgz \
 && rm apache-jmeter-5.0.tgz
 
 ENV JMETER_HOME /jmeter/apache-jmeter-5.0/
-		
+
+WORKDIR /
+	
 ENV PATH $JMETER_HOME/bin:$PATH

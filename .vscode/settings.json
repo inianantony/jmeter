@@ -3,6 +3,8 @@
         "APDEX",
         "Jmeter",
         "Jmeter's",
+        "grafana",
+        "influxdb",
         "jmeterout"
     ]
 }
