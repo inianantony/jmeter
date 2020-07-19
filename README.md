@@ -260,7 +260,7 @@ So a think timer executes after a request while the normal timer executes before
 8. Add `Response Assertion` under Transaction Controller and click `Response Code` as the Field to test, and click `Add` to add a pattern to test and set `200` as the pattern
 9. Under User Thread Group add another `Http Request` and rename as Book Detail Request and set the `path` to be `/books/1`
 10. Add a `Uniform Random Timer` under User Thread Group and set the random delay to be `7000` milliseconds
-11. Add 2 Listeners , `View Results Tree` and `Summary Report` under User Thread group 
+11. Add 2 Listeners , `View Results Tree` and `Summary Report` under User Thread group
 12. Now save the script as `PerformanceTestPlan.jmx`
 
 ## Running the app
@@ -281,3 +281,19 @@ Now the app will run and the host port 8080 is bound to the app.
 ``` bash
 jmeter -n -t PerformanceTestPlan.jmx -l results.csv -j logfile.log -e -o ./jmeterout
 ```
+
+## Recording a test script through proxy
+
+Configure your browser to proxy at localhost:8888. Now add `Recording` template from File-> Templates. Change the host to record as `localhost` and scheme as http. Click start to start the recording in the HTTP(S) Script recorder. A Recorder : Transaction Controller popup will appear.
+
+Follow the below steps,
+
+1. Give the name `Home` in pop up and visit the home page.
+2. Give the name `Catalog` and visit the browse catalog page
+3. Give the name `Login` and visit the login page and login to the system using `user1` as credentials.
+4. Give the name `BookDetail` and browse 1 book
+5. Give the name `Review` give a review for that book
+6. Now stop the recording.
+7. Right Click on the Thread Group and validate the test.
+
+To record a HTTPS site, import the Jmeter's certificate from the `bin` folder to the Trusted Authorities in browser.
