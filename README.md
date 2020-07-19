@@ -295,6 +295,7 @@ Follow the below steps,
 5. Give the name `Review` give a review for that book
 6. Now stop the recording.
 7. Right Click on the Thread Group and validate the test.
+8. Save as `RecordingTestPlan.jmx`
 
 To record a HTTPS site, import the Jmeter's certificate from the `bin` folder to the Trusted Authorities in browser.
 
@@ -306,3 +307,6 @@ Add a CSV Data set config and browse the login.csv file, to import the csv data.
 
 Add a CSV selector extractor post processor under the login POST request and give the name as `BOOK_URL` , CSS selector expression as `div[class*="single-product"] div a` and attribute as `href`. 0 to pick a random elem,ent and 9999 for default value. Now the `${BOOK_URL}` can be used instead of hardcoded URL.
 
+## Stress test using Ultimate Thread Group
+
+Add `Ultimate Thread Group` and add a new row and set Start Thread COunt to 100 and Initial Delay to 0 and StartupTime to 30 and Hold for 10 seconds and shutdown in 1 second. The variables can be adjusted to make more realistic stress test. The other configurations, samplers and listeners can be copied from the previous `RecordingTestPlan.jmx` and this test script is saved as `StressTestThread.jmx`.
